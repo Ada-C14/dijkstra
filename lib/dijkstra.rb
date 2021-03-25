@@ -1,4 +1,12 @@
+# Time Complexity: O(v^2) - Since we are performing a variety of BFS on an adjacency matrix,
+# the time complexity to search all edges will be, at worst case, O(v^2), assuming all vertices v
+# are interconnected. This is because for each node visited, the entire associated row on the 
+# adjacency matrix has to be checked to confirm which edges are actual graph edges. 
 
+# Space Complexity: O(v) - A couple arrays are create, size directly equal to the number of vertices v. 
+# Likewise, the Queue and Set created to track nodes to visit and visited nodes are also directly
+# equal to tne number of vertices in the graph. The return hash is simply a wrapper that envelops
+# the shortest_distances and parent_list arrays. 
 def dijkstra(adjacency_matrix, start_node) 
     shortest_distances = Array.new(adjacency_matrix[0].length){Float::INFINITY}
     parent_list = Array.new(shortest_distances.length){nil} 
